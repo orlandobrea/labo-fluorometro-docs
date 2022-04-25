@@ -1,0 +1,37 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+LAYOUT_WITH_LEGEND()
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/nodejs.puml
+!include DEVICONS/msql_server.puml
+!include DEVICONS/mongodb.puml
+
+title Diagrama de contenedor para interfaz con fluorometro
+
+Person(labo_user, "Usuario de Laboratorio")
+Person(operador, "Usuario operador Fluorometro")
+Person(validador, "Usuario validador")
+
+System_Boundary(c1, "Sistema integracion fluorometro") {
+    Container(spa, "SPA", "Angular", "Provee toda la funcionalidad a traves del navegador", $sprite="angular")
+    Container(api, "API", "NodeJS (Docker)", "Provee los servicios a la SPA", $sprite="nodejs")
+    ContainerDb(database, "Database", "MongoDB", "Guarda las ordenes exportadas, la configuracion del fluorometro por tipo de estudio, y resultados", $sprite="mongodb")
+}
+
+System_Ext(sip, "DB SIPS", "Base de datos de SIPS", $sprite="msql_server")
+
+Rel(labo_user, spa, "Usa", "")
+Rel(operador, spa, "Usa", "")
+Rel(validador, spa, "Usa", "")
+Rel(sip, api, "Ordenes de trabajo", "SQL")
+
+
+Rel(spa, api, "Uses", "async, JSON/HTTPS")
+Rel_Back_Neighbor(database, api, "Reads from and writes to", "async")
+
+
+System(sip, "DB SIP")
+@enduml

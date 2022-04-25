@@ -1,0 +1,22 @@
+@startuml Basic Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+
+title Diagrama de contexto para interfaz con fluorometro
+
+Person(labo, "Usuario Laboratorio")
+Person(operador, "Usuario operador Fluorometro")
+Person(validador, "Usuario validador")
+
+System_Boundary(c1, "Sistema integracion fluorometro") {
+    Container(app, "Aplicacion integracion", "Node + Angular", "Genera interfaz para usar el fluorometro")
+}
+System(sip, "DB SIP")
+
+Rel(labo, app, "1. Genera Orden de trabajo", "")
+Rel(sip, app, "Ordenes de trabajo", "SQL")
+Rel(app, operador, "2. Descarga worklist en TXT", "Archivo")
+Rel(app, validador, "4. Obtiene orden de trabajo con resultados")
+Rel(operador, app, "3. Sube resultados en TXT")
+
+@enduml
