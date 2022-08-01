@@ -1,4 +1,3 @@
-
 ## Contexto
 
 ![Diagrama de contexto](context.puml)

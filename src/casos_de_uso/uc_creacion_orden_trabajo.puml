@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+actor "Usuario Laboratorio" as fc
+rectangle "Generar Orden de Trabajo" {
+  usecase "Crear orden de trabajo a partir de protocolos entre fechas" as UC2
+}
+fc --> UC1
+fc --> UC2
+@enduml

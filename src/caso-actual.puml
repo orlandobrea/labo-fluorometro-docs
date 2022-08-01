@@ -1,0 +1,14 @@
+@startuml
+start
+:Generar Orden de Trabajo entre fechas / protocolos;
+repeat
+  :Armado de matriz para estudio X;
+  :Armado de worklist para fluorometro;
+  :Realizacion de estudios en fluorometro;
+  :Obtencion de resultados;
+  :Pasar resultados a Orden de Trabajo;
+repeat while (hay estudios pendientes?) is (yes)
+:Pasar resultados a Excel;
+:Pasar resultados a SIPS;
+end
+@enduml
