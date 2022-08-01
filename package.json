@@ -1,0 +1,27 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "c4builder site -w ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orlandobrea/labo-fluorometro-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orlandobrea/labo-fluorometro-docs/issues"
+  },
+  "homepage": "https://github.com/orlandobrea/labo-fluorometro-docs#readme",
+  "dependencies": {
+    "c4builder": "^0.2.16"
+  }
+}

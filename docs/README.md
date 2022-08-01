@@ -2,7 +2,7 @@
 
 * [**Overview**](README.md)
   * [archivos de ejemplo](archivos%20de%20ejemplo/README.md)
-  * [casos_de_uso](casos_de_uso/README.md)
+  * [casos de uso](casos%20de%20uso/README.md)
   * [diagramas](diagramas/README.md)
 
 ---

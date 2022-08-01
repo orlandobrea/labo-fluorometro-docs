@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor "Usuario Laboratorio" as user
+actor "Usuario Estadisticas" as user_estadisticas
+
+rectangle "Descargar worklist" {
+  usecase "Descargar worklist" as UC1
+}
+
+rectangle "Generar Orden de Trabajo" {
+  usecase "Crear orden de trabajo a partir de protocolos entre fechas" as UC2
+}
+
+rectangle "Sube resultados en TXT" {
+  usecase "Sube resultados en TXT" as UC3
+}
+
+rectangle "Descarga orden de trabajo con resultados" {
+  usecase "Descarga OT con resultades" as UC4
+}
+
+user --> UC1
+user --> UC2
+user --> UC3
+user_estadisticas --> UC4
+
+@enduml
